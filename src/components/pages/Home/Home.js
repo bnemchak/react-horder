@@ -10,7 +10,7 @@ class Home extends React.Component {
     items: [],
   }
 
-  componentWillMount() {
+  componentDidMount() {
     itemsData.getItemsByUid(authData.getUid())
       .then((items) => this.setState({ items }))
       .catch((err) => console.error('get items broke', err));

@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import itemShape from '../../helpers/propz/itemShape';
 
 const ItemCard = (props) => {
-  const { item } = props;
+  const { item, deleteItem } = props;
 
   const editLink = `/edit/${item.id}`;
 
@@ -15,7 +16,8 @@ const ItemCard = (props) => {
         <div className="card-body">
           <h5 className="card-title">{item.itemName}</h5>
           <p className="card-text">{item.itemDescription}</p>
-          <Link to={editLink} className="btn btn-dark"><i class="far fa-edit"></i></Link>
+          <Link to={editLink} className="btn btn-dark"><i className="far fa-edit"></i></Link>
+          <button className="btn btn-danger" onClick={() => { deleteItem(item.id); }}><i className="fas fa-trash"></i></button>
         </div>
       </div>
     </div>
@@ -24,6 +26,7 @@ const ItemCard = (props) => {
 
 ItemCard.propTypes = {
   item: itemShape.itemShape,
+  deleteItem: PropTypes.func.isRequired,
 };
 
 export default ItemCard;

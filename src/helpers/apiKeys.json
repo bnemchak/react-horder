@@ -1,0 +1,11 @@
+{
+  "firebaseConfig": {
+  "apiKey": "AIzaSyBVesW2O9nRtwC7JeH4LNRM2Rw_8vJWDpo",
+  "authDomain": "react-horder-28ca3.firebaseapp.com",
+  "databaseURL": "https://react-horder-28ca3.firebaseio.com",
+  "projectId": "react-horder-28ca3",
+  "storageBucket": "react-horder-28ca3.appspot.com",
+  "messagingSenderId": "1016076255790",
+  "appId": "1:1016076255790:web:7d163245463e7e2d2d55bf"
+  }
+}

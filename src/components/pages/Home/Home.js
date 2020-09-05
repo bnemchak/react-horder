@@ -10,16 +10,26 @@ class Home extends React.Component {
     items: [],
   }
 
-  componentDidMount() {
+  getItems = () => {
     itemsData.getItemsByUid(authData.getUid())
       .then((items) => this.setState({ items }))
       .catch((err) => console.error('get items broke', err));
   }
 
+  componentDidMount() {
+    this.getItems();
+  }
+
+  deleteItem = (itemId) => {
+    itemsData.deleteItem(itemId)
+      .then(() => this.getItems())
+      .catch((err) => console.error('delete item broke', err));
+  }
+
   render() {
     const { items } = this.state;
 
-    const itemCard = items.map((item) => <ItemCard key={item.id} item={item}/>);
+    const itemCard = items.map((item) => <ItemCard key={item.id} item={item} deleteItem={this.deleteItem}/>);
 
     return (
       <div className="Home">
